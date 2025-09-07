@@ -18,18 +18,14 @@ export async function controllerResendCodeEmail(request: FastifyRequest, reply: 
         const { email, role } = parse.data;
         let user;
         switch(role){
-            case 'student':
-                const userStudent = await prisma.student.findUnique({where:{email}});
+            case 'client':
+                const userStudent = await prisma.client.findUnique({where:{email}});
                 user = userStudent;
                 break;
             case 'company':
                 const userCompany = await prisma.company.findUnique({where:{email}});
                 user = userCompany;
                 break;
-            case 'professional':
-                const userProfessional = await prisma.professional.findUnique({where:{email}});
-                user = userProfessional;
-                break; 
              default: 
             user = null;  
         }
@@ -49,17 +45,8 @@ export async function controllerResendCodeEmail(request: FastifyRequest, reply: 
         }
       
         switch(role){
-            case 'student':
-                 await prisma.student.update({
-            where:{email},
-            data:{
-                emailCodeVerification: codeEmailVerification,
-                emailVerificationExpires: timeExpiresVerificationEmail
-            }
-        });
-        break;
-         case 'professional':
-              await prisma.professional.update({
+            case 'client':
+                 await prisma.client.update({
             where:{email},
             data:{
                 emailCodeVerification: codeEmailVerification,
