@@ -9,7 +9,6 @@ import { generationDateNow } from '../../utils/mail/generation-date';
 import { generationTimeVerificationEmail } from '../../utils/mail/generation-time-verification-email';
 import { sendEmailVerificationCode } from '../../utils/resend/resend-util';
 import { sendEmailInviteCodeCompany } from '../../utils/resend/resend-invite-company';
-import { schemaInviteStudent} from '../../types/schemas/company/schema-invite-student-company';
 import { randomUUID } from 'crypto';
 import { supabase } from '../../config/subapase-config';
 import jwt from 'jsonwebtoken';

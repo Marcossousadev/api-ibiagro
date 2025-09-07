@@ -6,14 +6,12 @@ import {
     controllerVerifyToken,
     controllerAuthSignUpCompanyImg
 } from '../../controllers/auth/auth-company-controller';
-import { controllerInviteUnionCodeStudent } from '../../controllers/users/company/invites/invite-company-to-student-controller';
 import { schemaAuthDecodeCompany } from '../../types/schemas/auth/decode-jwt/schema-auth-decode-company';
 import {schemaCompany} from '../../types/schemas/auth/company-schema';
 import { schemaSignInCompany } from '../../types/schemas/auth/schema-sigin-company';
 import {schemaDataReplyCompany} from '../../types/schemas/auth/schema-data-reply-company';
 import {schemaZodFlattenError} from '../../types/schemas/auth/schema-zod-flatten-error';
 import {schemaHeaders} from '../../types/schemas/auth/schema-headers';
-import {schemaInviteStudent} from '../../types/schemas/company/schema-invite-student-company';
 import {z} from 'zod';
 export async function routesAuthCompany(app: FastifyTypeInstance){
     app.post('/signUp-company', {
