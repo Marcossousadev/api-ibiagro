@@ -9,9 +9,6 @@ import swaggerConfig from "./config/swagger-config";
 import { ZodTypeProvider } from 'fastify-type-provider-zod';
 import zodConfig from "./config/zod-config";
 import { routes } from "./routes/routes";
-import { routesCompany } from "./routes/users/company/routes-company";
-import { routesStudent } from "./routes/users/student/routes-student";
-import { routesProfessional } from "./routes/users/professional/routes-professional";
 import fastifyMultipart from '@fastify/multipart';
 dotenv.config();
 
@@ -27,9 +24,6 @@ app.withTypeProvider<ZodTypeProvider>();
 app.register(routesAuthClient, {prefix:'/client'});
 app.register(routesAuthCompany, {prefix:'/company'});
 app.register(routesEmail, {prefix:'/email'});
-app.register(routesCompany, {prefix:'/company-actions'});
-app.register(routesStudent, {prefix:'/student-actions'});
-app.register(routesProfessional, {prefix:'/professional-actions'});
 app.register(routes);
 
 const PORT = Number(process.env.PORT) || 5555;
