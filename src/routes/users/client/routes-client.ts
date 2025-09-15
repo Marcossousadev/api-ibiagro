@@ -11,7 +11,7 @@ export async function routesClient(app: FastifyInstance){
                 id: z.string()
             }),
             response:{
-                200: z.object({student: z.object({}).catchall(z.any())}),
+                200: z.object({client: z.object({}).catchall(z.any())}),
                 400: z.object({error: schemaZodFlattenError}),
                 409: z.object({message: z.string()}),
                 500: z.object({error: z.string()})
