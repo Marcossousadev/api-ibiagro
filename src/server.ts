@@ -10,6 +10,7 @@ import { ZodTypeProvider } from 'fastify-type-provider-zod';
 import zodConfig from "./config/zod-config";
 import { routes } from "./routes/routes";
 import fastifyMultipart from '@fastify/multipart';
+import { routesClient } from "./routes/users/client/routes-client";
 dotenv.config();
 
 testConnection();
@@ -25,6 +26,7 @@ app.register(routesAuthClient, {prefix:'/client'});
 app.register(routesAuthCompany, {prefix:'/company'});
 app.register(routesEmail, {prefix:'/email'});
 app.register(routes);
+app.register(routesClient, {prefix:"/client-actions"});
 
 const PORT = Number(process.env.PORT) || 5555;
 app.listen({port:PORT, host:'0.0.0.0'}).then(() => {    
